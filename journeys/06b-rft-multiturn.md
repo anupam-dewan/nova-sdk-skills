@@ -323,13 +323,15 @@ customizer = NovaModelCustomizer(
     method=TrainingMethod.RFT_MULTITURN,  # Multi-turn variant
     infra=runtime,
     data_s3_path="s3://my-training-bucket/data/rft-multiturn/conversations.jsonl",
-    output_s3_path="s3://my-training-bucket/output/rft-multiturn/",
-    reward_lambda_arn="arn:aws:lambda:us-east-1:123:function:nova-reward-conversation"
+    output_s3_path="s3://my-training-bucket/output/rft-multiturn/"
 )
+
+# Store Lambda ARN for use in training
+lambda_arn = "arn:aws:lambda:us-east-1:123:function:nova-reward-conversation"
 
 print("✅ Multi-Turn RFT Customizer initialized")
 print(f"   Method: {customizer.method}")
-print(f"   Reward Lambda: {customizer.reward_lambda_arn}")
+print(f"   Reward Lambda: {lambda_arn}")
 ```
 
 ---
@@ -390,6 +392,7 @@ print("✅ Multi-turn RFT hyperparameters configured")
 # Start multi-turn RFT training
 result = customizer.train(
     job_name="support-multiturn-rft-v1",
+    reward_lambda_arn=lambda_arn,  # Pass Lambda ARN as separate parameter
     overrides=rft_multiturn_config,
     dry_run=False
 )
@@ -570,13 +573,13 @@ customizer = NovaModelCustomizer(
     method=TrainingMethod.RFT_MULTITURN,
     infra=runtime,
     data_s3_path="s3://bucket/conversations.jsonl",
-    output_s3_path="s3://bucket/output/",
-    reward_lambda_arn=lambda_arn
+    output_s3_path="s3://bucket/output/"
 )
 
 # 4. Train
 result = customizer.train(
     job_name="my-multiturn-rft",
+    reward_lambda_arn=lambda_arn,  # Pass as separate parameter
     overrides={
         "lr": 5e-7,
         "max_conversation_length": 10,

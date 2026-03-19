@@ -295,13 +295,15 @@ customizer = NovaModelCustomizer(
     method=TrainingMethod.RFT_SINGLETURN,
     infra=runtime,
     data_s3_path="s3://my-training-bucket/data/rft/code_prompts.jsonl",
-    output_s3_path="s3://my-training-bucket/output/rft/",
-    reward_lambda_arn="arn:aws:lambda:us-east-1:123:function:nova-reward-code-correctness"
+    output_s3_path="s3://my-training-bucket/output/rft/"
 )
+
+# Store Lambda ARN for use in training
+lambda_arn = "arn:aws:lambda:us-east-1:123:function:nova-reward-code-correctness"
 
 print("✅ RFT Customizer initialized")
 print(f"   Method: {customizer.method}")
-print(f"   Reward Lambda: {customizer.reward_lambda_arn}")
+print(f"   Reward Lambda: {lambda_arn}")
 ```
 
 ---
@@ -357,6 +359,7 @@ print("✅ RFT hyperparameters configured")
 # Start RFT training
 result = customizer.train(
     job_name="code-rft-v1",
+    reward_lambda_arn=lambda_arn,  # Pass Lambda ARN as separate parameter
     overrides=rft_config,
     dry_run=False
 )
@@ -364,7 +367,7 @@ result = customizer.train(
 print("✅ RFT Training started!")
 print(f"   Job ID: {result.job_id}")
 print(f"   Status: {result.status}")
-print(f"   Lambda: {customizer.reward_lambda_arn}")
+print(f"   Lambda: {lambda_arn}")
 ```
 
 ---
@@ -543,13 +546,13 @@ customizer = NovaModelCustomizer(
     method=TrainingMethod.RFT_SINGLETURN,
     infra=runtime,
     data_s3_path="s3://bucket/rft/prompts.jsonl",
-    output_s3_path="s3://bucket/output/rft/",
-    reward_lambda_arn=lambda_arn
+    output_s3_path="s3://bucket/output/rft/"
 )
 
 # 4. Train
 result = customizer.train(
     job_name="my-rft",
+    reward_lambda_arn=lambda_arn,  # Pass as separate parameter
     overrides={"lr": 1e-6, "num_generations_per_prompt": 4}
 )
 
