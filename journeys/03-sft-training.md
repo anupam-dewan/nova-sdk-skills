@@ -55,7 +55,7 @@
 - Single job at a time
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Configure SMTJ runtime
 runtime = SMTJRuntimeManager(
@@ -126,7 +126,7 @@ print(f"📊 MLflow UI: {mlflow_url}")
 ## Step 3: Initialize NovaModelCustomizer
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Load environment variables
 S3_BUCKET = "your-bucket-name"
@@ -300,7 +300,7 @@ print(f"   Secondary Status: {status['SecondaryStatus']}")
 ### 6.4 View Logs After Completion
 
 ```python
-from amzn_nova_customization_sdk import Platform
+from amzn_nova_forge import Platform
 
 # After training completes
 monitor = CloudWatchLogMonitor.from_job_id(
@@ -425,7 +425,7 @@ training_result.dump("training_result.json")
 print("✅ Training result saved")
 
 # Load later
-from amzn_nova_customization_sdk import TrainingResult
+from amzn_nova_forge import TrainingResult
 loaded_result = TrainingResult.load("training_result.json")
 print(f"✅ Loaded training result: {loaded_result.job_id}")
 ```
@@ -481,7 +481,7 @@ print(f"   Stage 2 checkpoint: {stage2_result.model_artifacts.checkpoint_s3_path
 ### Minimal Training Example
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Setup
 runtime = SMTJRuntimeManager(
@@ -554,6 +554,6 @@ NOVA_PRO_CONFIG = {
 ## Resources
 
 - [Nova SFT Documentation](https://docs.aws.amazon.com/sagemaker/latest/dg/nova-sft.html)
-- [SDK Training Spec](../nova-customization-sdk/docs/spec.md#train)
+- [SDK Training Spec](../amzn-nova-forge/docs/spec.md#train)
 - [Hyperparameter Tuning Guide](https://docs.aws.amazon.com/sagemaker/latest/dg/nova-hyperparameters.html)
-- [Instance Type Specifications](../nova-customization-sdk/docs/instance_type_spec.md)
+- [Instance Type Specifications](../amzn-nova-forge/docs/instance_type_spec.md)

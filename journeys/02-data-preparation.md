@@ -37,7 +37,7 @@ Different training methods require different data formats:
 The SDK provides three data loader classes:
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # For JSONL files (recommended)
 loader = JSONLDatasetLoader(
@@ -105,7 +105,7 @@ print(f"✅ Created {len(sft_data)} training samples")
 ### 2.2 Load and Transform SFT Data
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Initialize loader with column mappings
 loader = JSONLDatasetLoader(
@@ -530,7 +530,7 @@ check_sequence_lengths(train_loader, max_length=8192)
 If you already have data in S3:
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Load from S3
 loader = JSONLDatasetLoader(
@@ -657,4 +657,4 @@ echo "test" | aws s3 cp - s3://your-bucket/test.txt
 
 - [Nova Data Format Specification](https://docs.aws.amazon.com/sagemaker/latest/dg/nova-data-format.html)
 - [Converse API Format](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html)
-- [SDK spec.md Dataset Module](../nova-customization-sdk/docs/spec.md#dataset-loaders)
+- [SDK spec.md Dataset Module](../amzn-nova-forge/docs/spec.md#dataset-loaders)

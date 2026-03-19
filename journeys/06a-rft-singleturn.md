@@ -264,7 +264,7 @@ print("✅ RFT prompts uploaded")
 ## Step 4: Configure Runtime
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Option A: SMTJ (simpler)
 runtime = SMTJRuntimeManager(
@@ -287,7 +287,7 @@ print("✅ Runtime configured")
 ## Step 5: Initialize RFT Training
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Initialize customizer for RFT
 customizer = NovaModelCustomizer(
@@ -526,7 +526,7 @@ def calculate_reward(prompt, response):
 ### Minimal RFT Example
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # 1. Deploy reward Lambda (once)
 lambda_arn = "arn:aws:lambda:us-east-1:123:function:my-reward"

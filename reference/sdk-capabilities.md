@@ -1,6 +1,6 @@
-# Nova Customization SDK - Capabilities Matrix
+# Nova Forge SDK - Capabilities Matrix
 
-This document provides a comprehensive overview of the Nova Customization SDK capabilities, organized by module and functionality.
+This document provides a comprehensive overview of the Nova Forge SDK capabilities, organized by module and functionality.
 
 ---
 
@@ -521,7 +521,7 @@ Same instance types as SMTJ, plus:
 
 ## SDK Version Information
 
-**Current SDK Version**: Check with `pip show amzn-nova-customization-sdk`
+**Current SDK Version**: Check with `pip show amzn-amzn-nova-forge`
 
 **Python Requirements**: Python 3.12+
 

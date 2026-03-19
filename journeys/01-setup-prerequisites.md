@@ -10,7 +10,7 @@
 
 ## What You'll Learn
 
-- Install the Nova Customization SDK
+- Install the Nova Forge SDK
 - Configure AWS credentials and IAM roles
 - Set up execution roles for SageMaker
 - Install HyperPod CLI (for SMHP users)
@@ -61,14 +61,14 @@ which python
 
 ---
 
-## Step 2: Install Nova Customization SDK
+## Step 2: Install Nova Forge SDK
 
 ```bash
 # Install the SDK
-pip install amzn-nova-customization-sdk
+pip install amzn-nova-forge
 
 # Verify installation
-python -c "from amzn_nova_customization_sdk import *; print('✅ SDK installed successfully!')"
+python -c "from amzn_nova_forge import *; print('✅ SDK installed successfully!')"
 ```
 
 **Note**: The SDK automatically installs `sagemaker==2.254.1` as a dependency.
@@ -368,7 +368,7 @@ Create a verification script to test your setup:
 ```python
 # save as verify_setup.py
 import boto3
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 def verify_setup():
     print("🔍 Verifying Nova SDK Environment...\n")
@@ -435,12 +435,12 @@ python verify_setup.py
 
 ## Common Issues & Troubleshooting
 
-### Issue: "ModuleNotFoundError: No module named 'amzn_nova_customization_sdk'"
+### Issue: "ModuleNotFoundError: No module named 'amzn_nova_forge'"
 
 **Solution**: Make sure you installed the SDK in the correct environment:
 ```bash
 pip list | grep nova
-# Should show: amzn-nova-customization-sdk
+# Should show: amzn-nova-forge
 ```
 
 ### Issue: "NoCredentialsError: Unable to locate credentials"
@@ -478,7 +478,7 @@ pyenv global 3.12.0
 source nova-env/bin/activate
 
 # Check SDK version
-pip show amzn-nova-customization-sdk
+pip show amzn-nova-forge
 
 # Test AWS credentials
 aws sts get-caller-identity
@@ -514,5 +514,5 @@ export EXECUTION_ROLE_ARN="arn:aws:iam::123456789012:role/NovaCustomizationExecu
 
 - [AWS IAM Roles Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)
 - [SageMaker Execution Roles](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html)
-- [Nova SDK GitHub](https://github.com/aws/nova-customization-sdk)
+- [Nova SDK GitHub](https://github.com/aws/amzn-nova-forge)
 - [HyperPod CLI Documentation](https://github.com/aws/sagemaker-hyperpod-cli)

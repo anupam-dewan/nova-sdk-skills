@@ -1,12 +1,12 @@
 ---
-description: Guide for customizing Amazon Nova models using the Nova Forge SDK (nova-customization-sdk)
+description: Guide for customizing Amazon Nova models using the Nova Forge SDK
 name: nova-guide
 user-invokable: true
 ---
 
-# Nova Customization SDK Guide
+# Nova Forge SDK Guide
 
-Help users customize Amazon Nova models using the Nova Forge SDK (nova-customization-sdk).
+Help users customize Amazon Nova models using the Nova Forge SDK.
 
 ## When to Use This Skill
 
@@ -21,7 +21,7 @@ Activate when users ask about:
 - Evaluation: "How do I evaluate my Nova model?"
 - Any question about Nova model customization, Forge SDK, or related workflows
 
-**Key activation terms**: Nova, Nova SDK, Nova Forge, Forge SDK, nova-customization-sdk
+**Key activation terms**: Nova, Nova SDK, Nova Forge, Forge SDK, Nova Forge SDK
 
 ## Available Journeys
 
@@ -105,7 +105,7 @@ Guide users to start with SMTJ unless they need CPT or have production requireme
 ### Minimal SFT Training
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 runtime = SMTJRuntimeManager(instance_type="ml.p5.48xlarge", instance_count=4)
 customizer = NovaModelCustomizer(

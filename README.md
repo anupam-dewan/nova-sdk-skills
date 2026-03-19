@@ -23,7 +23,7 @@ claude
 **That's it!** Start asking questions:
 
 ```sh
-How do I set up the Nova Customization SDK?
+How do I set up the Nova Forge SDK?
 Show me a quick SFT training example using Nova Forge
 How do I deploy my model to Bedrock?
 ```
@@ -92,7 +92,7 @@ The skill auto-activates when you mention these terms:
 - ✅ "How do I use the **Forge SDK**?"
 - ❌ "How do I fine-tune a model?" (no activation keywords)
 
-**Activation keywords**: Nova, Nova SDK, Nova Forge, Forge SDK, nova-customization-sdk
+**Activation keywords**: Nova, Nova SDK, Nova Forge, Forge SDK, amzn-nova-forge
 
 For generic questions, explicitly invoke the skill:
 ```
@@ -185,7 +185,7 @@ Setup → Data Prep → CPT → Data Prep → SFT → Evaluation
 <summary><b>Requirements</b></summary>
 
 - **Claude Code CLI** - [Installation instructions](https://docs.anthropic.com/claude-code)
-- **nova-customization-sdk** - For actual training (optional for learning)
+- **amzn-nova-forge** - For actual training (optional for learning)
 - **AWS Account** - With appropriate permissions for training jobs
 
 </details>
@@ -231,7 +231,7 @@ nova-sdk-skills/
 
 - [Amazon Nova Documentation](https://docs.aws.amazon.com/sagemaker/latest/dg/nova-customization.html)
 - [Claude Code Documentation](https://docs.anthropic.com/claude-code)
-- [nova-customization-sdk Repository](https://github.com/aws/nova-customization-sdk)
+- [amzn-nova-forge Repository](https://github.com/aws/amzn-nova-forge)
 
 ## Support
 

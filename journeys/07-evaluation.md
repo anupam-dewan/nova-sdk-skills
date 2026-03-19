@@ -33,7 +33,7 @@
 ## Step 1: Configure Evaluation Infrastructure
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Configure runtime (can use fewer resources than training)
 eval_runtime = SMTJRuntimeManager(
@@ -135,7 +135,7 @@ print(f"✅ MMLU Medical evaluation started: {mmlu_medical_result.job_id}")
 
 ```python
 # Load training result from previous training (Journey 3)
-from amzn_nova_customization_sdk import TrainingResult
+from amzn_nova_forge import TrainingResult
 
 training_result = TrainingResult.load("training_result.json")
 
@@ -198,7 +198,7 @@ with open("custom_eval_data.jsonl", "w") as f:
         f.write(json.dumps(item) + "\n")
 
 # Upload to S3
-from amzn_nova_customization_sdk import JSONLDatasetLoader
+from amzn_nova_forge import JSONLDatasetLoader
 
 loader = JSONLDatasetLoader()
 loader.load("custom_eval_data.jsonl")
@@ -370,7 +370,7 @@ print(f"✅ LLM-as-Judge evaluation started: {judge_result.job_id}")
 evaluator.get_logs(limit=50, start_from_head=False)
 
 # After completion
-from amzn_nova_customization_sdk import CloudWatchLogMonitor, Platform
+from amzn_nova_forge import CloudWatchLogMonitor, Platform
 
 monitor = CloudWatchLogMonitor.from_job_id(
     job_id=byod_result.job_id,
@@ -554,7 +554,7 @@ print(f"   Trained: {trained_result.job_id}")
 ### Evaluation Tasks
 
 ```python
-from amzn_nova_customization_sdk import EvaluationTask
+from amzn_nova_forge import EvaluationTask
 
 # Available tasks
 EvaluationTask.MMLU
@@ -571,7 +571,7 @@ EvaluationTask.LLM_JUDGE       # LLM-as-Judge
 ### Minimal Evaluation Example
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Setup
 eval_runtime = SMTJRuntimeManager(
@@ -613,5 +613,5 @@ print(f"✅ Evaluation started: {result.job_id}")
 
 - [Nova Evaluation Documentation](https://docs.aws.amazon.com/sagemaker/latest/dg/nova-model-evaluation.html)
 - [Benchmark Descriptions](https://docs.aws.amazon.com/sagemaker/latest/dg/nova-model-evaluation.html#nova-model-evaluation-benchmark)
-- [SDK Evaluation Spec](../nova-customization-sdk/docs/spec.md#evaluate)
+- [SDK Evaluation Spec](../amzn-nova-forge/docs/spec.md#evaluate)
 - [Custom Metrics Guide](https://docs.aws.amazon.com/sagemaker/latest/dg/nova-byom.html)

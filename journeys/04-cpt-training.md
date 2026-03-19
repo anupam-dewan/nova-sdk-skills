@@ -122,7 +122,7 @@ print("✅ CPT corpus uploaded to S3")
 ### Validate Data Quality
 
 ```python
-from amzn_nova_customization_sdk.data import Dataset
+from amzn_nova_forge.data import Dataset
 
 # Load and validate
 dataset = Dataset.load_from_s3(
@@ -146,7 +146,7 @@ print(dataset[0][:200] + "...")
 CPT **requires SMHP** - SMTJ does not support CPT.
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Configure SMHP runtime
 runtime = SMHPRuntimeManager(
@@ -174,7 +174,7 @@ print(f"   Instance Count: {runtime.instance_count}")
 ## Step 4: Initialize CPT Training
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Initialize customizer for CPT
 customizer = NovaModelCustomizer(
@@ -287,7 +287,7 @@ After CPT completes, test domain knowledge improvement:
 
 ```python
 # Compare base model vs CPT model on domain text
-from amzn_nova_customization_sdk.inference import compare_models
+from amzn_nova_forge.inference import compare_models
 
 test_prompts = [
     "What is myocardial infarction?",
@@ -403,7 +403,7 @@ runtime = SMHPRuntimeManager(instance_count=16)  # Was 8
 ### Minimal CPT Example
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # 1. Configure SMHP (required)
 runtime = SMHPRuntimeManager(

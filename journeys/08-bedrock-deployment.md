@@ -44,7 +44,7 @@
 ### 1.1 Check Training Checkpoint
 
 ```python
-from amzn_nova_customization_sdk import TrainingResult
+from amzn_nova_forge import TrainingResult
 
 # Load training result from previous training
 training_result = TrainingResult.load("training_result.json")
@@ -80,7 +80,7 @@ except Exception as e:
 ### 2.1 Configure Deployment
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Load customizer with trained model
 customizer = NovaModelCustomizer(
@@ -570,7 +570,7 @@ deployment = customizer.deploy(
 ### Minimal Deployment Example
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Load training result
 training_result = TrainingResult.load("training_result.json")
@@ -643,5 +643,5 @@ response.show()
 - [Amazon Bedrock Documentation](https://docs.aws.amazon.com/bedrock/)
 - [Bedrock Custom Models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
 - [Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/)
-- [SDK Deploy Spec](../nova-customization-sdk/docs/spec.md#deploy)
+- [SDK Deploy Spec](../amzn-nova-forge/docs/spec.md#deploy)
 - [Bedrock API Reference](https://docs.aws.amazon.com/bedrock/latest/APIReference/)

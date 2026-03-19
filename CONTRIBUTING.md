@@ -101,7 +101,7 @@ nova-sdk-skills/
 Example:
 ```python
 # ✅ Good - Complete and runnable
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 runtime = SMTJRuntimeManager(instance_type="ml.p5.48xlarge", instance_count=4)
 customizer = NovaModelCustomizer(model=Model.NOVA_LITE_2, ...)

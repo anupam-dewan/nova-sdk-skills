@@ -292,7 +292,7 @@ print("✅ Multi-turn conversations uploaded")
 ## Step 4: Configure Runtime
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Multi-turn RFT benefits from more memory
 runtime = SMTJRuntimeManager(
@@ -315,7 +315,7 @@ print("✅ Runtime configured for multi-turn RFT")
 ## Step 5: Initialize Multi-Turn RFT
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # Initialize customizer for multi-turn RFT
 customizer = NovaModelCustomizer(
@@ -553,7 +553,7 @@ def calculate_conversation_reward(conversation):
 ### Minimal Multi-Turn RFT Example
 
 ```python
-from amzn_nova_customization_sdk import *
+from amzn_nova_forge import *
 
 # 1. Deploy conversation reward Lambda
 lambda_arn = "arn:aws:lambda:us-east-1:123:function:conversation-reward"
